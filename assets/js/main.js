@@ -13,3 +13,22 @@ Scriviamo sempre in italiano i passaggi che vogliamo fare
 Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
 */
 
+// <---------- PALINDROM ---------->
+// ASK THE USER TO INPUT THE WORD
+const word = prompt("Inserisci una parola");
+
+// SET A CHECK VARIABLE
+let isPalindrome = false;
+
+// CYCLE THROUGH HALF THE WORD TO CHECK IF EACH LETTER MATCHES ITS "SAME INDEXED LETTER WHEN STARTING COUNTING FROM THE END"
+for (let i = 0; i < word.length / 2; i++) {
+  if (word[i] == word[word.length - 1 - i]) {
+    isPalindrome = true;
+  } else {
+    isPalindrome = false;
+    i = word.length / 2;
+  }
+}
+
+// CHECK VALUE OF ISPALINDROME
+isPalindrome ? console.log(`La parola ${word} è palindroma`) : console.log(`La parola ${word} non è palindroma`);
