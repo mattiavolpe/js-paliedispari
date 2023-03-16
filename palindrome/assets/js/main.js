@@ -13,7 +13,6 @@ while(checkIfSingleNonEmptyWord(word)) {
 
 // CONVERT THE WORD TO LOWERCASE FOR NOT CASE SENSITIVE CHECKING
 const wordLowerCase = word.toLowerCase();
-console.log(wordLowerCase);
 
 // CYCLE THROUGH HALF THE WORD TO CHECK IF EACH LETTER MATCHES ITS "SAME INDEXED LETTER WHEN STARTING COUNTING FROM THE END"
 let isPalindrome = checkIfPalindrome(wordLowerCase);
@@ -45,8 +44,7 @@ function checkIfPalindrome(wordToCheck) {
     if (wordToCheck[i] == wordToCheck[wordToCheck.length - 1 - i]) {
       checker = true;
     } else {
-      checker = false;
-      i = wordToCheck.length / 2;
+      return checker = false;
     }
   }
   return checker;
