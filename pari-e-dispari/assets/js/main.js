@@ -1,5 +1,3 @@
-// TODO I WILL REMOVE IT AFTER CODING
-"use strict";
 /*
 Pari e Dispari
 L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione). Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) Dichiariamo chi ha vinto.
@@ -19,13 +17,22 @@ while (userNumber < 1 || userNumber > 5 || (isNaN(userNumber))) {
   userNumber = Number(prompt("Inserisci un numero da 1 a 5"));
 }
 
-const pcNumber = Math.floor(Math.random() * 5) + 1;
+const pcNumber = pcNumberGenerator();
 
-const somma = userNumber + pcNumber;
-console.log(somma);
+const sum = userNumber + pcNumber;
 
-if ((evenOdd == "pari" && somma % 2 == 0) || (evenOdd == "dispari" && somma % 2 != 0)) {
-  console.log("Hai vinto");
-} else {
-  console.log("Hai perso");
+declareWinner(evenOddToLowerCase, userNumber, pcNumber, sum);
+
+// <---------- FUNCTIONS ---------->
+
+function pcNumberGenerator() {
+  return Math.floor(Math.random() * 5) + 1;
+}
+
+function declareWinner(userChoice, userChoicedNumber, pcChoicedNumber, sum) {
+  if ((userChoice == "pari" && sum % 2 == 0) || (userChoice == "dispari" && sum % 2 != 0)) {
+    alert(`Tu hai scelto ${userChoice} ed hai inserito ${userChoicedNumber}. Il PC ha scelto ${pcChoicedNumber}. La somma è ${sum}, quindi HAI VINTO`);
+  } else {
+    alert(`Tu hai scelto ${userChoice} ed hai inserito ${userChoicedNumber}. Il PC ha scelto ${pcChoicedNumber}. La somma è ${sum}, quindi HAI PERSO`);
+  }
 }
